@@ -1,4 +1,4 @@
-plugin-json
+system-json
 ===========
 
-JSON loader plugin
+JSON loader plugin for SystemJS.

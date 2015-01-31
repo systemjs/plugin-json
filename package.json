@@ -1,3 +1,25 @@
 {
-  "main": "json"
+  "main": "json",
+  "name": "system-json",
+  "description": "JSON loader plugin for SystemJS.",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:systemjs/plugin-json.git"
+  },
+  "keywords": [
+    "systemjs",
+    "loader"
+  ],
+  "author": [
+    "Guy Bedford <guybedford@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/systemjs/plugin-json/issues"
+  },
+  "homepage": "https://github.com/systemjs/plugin-json"
 }
