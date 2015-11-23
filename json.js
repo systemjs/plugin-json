@@ -1,6 +1,14 @@
 /*
   JSON plugin
 */
-exports.translate = function(load) {
-  return 'module.exports = ' + load.source;
-}
+
+define({
+  translate: function(load) {
+    if (this.builder)
+      return 'module.exports = ' + JSON.stringify(JSON.parse(load.source));
+  },
+  instantiate: function(load) {
+    if (!this.builder)
+      return JSON.parse(load.source);
+  }
+});
