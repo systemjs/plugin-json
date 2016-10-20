@@ -18,7 +18,7 @@ define({
       }
       var validIdentifiers = namedExports.filter(isValidIdentifier);
 
-      var output = [];
+      var output = ['exp' + 'ort var __useDefault = true;\n'];
 
       validIdentifiers.forEach(function (exportName) {
         output.push('exp' + 'ort var ' + exportName + ' = ' + JSON.stringify(json[exportName]) + ';\n');
