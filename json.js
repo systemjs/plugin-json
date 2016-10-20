@@ -6,7 +6,35 @@ define({
   translate: function(load) {
     if (this.builder && this.transpiler) {
       load.metadata.format = 'esm';
-      return 'exp' + 'ort var __useDefault = true; exp' + 'ort default ' + JSON.stringify(JSON.parse(load.source)) + ';';
+
+      var json = JSON.parse(load.source);
+      var namedExports = Object.keys(json);
+
+      // this code allows named exports of valid identifiers in json to work with rollup
+      // so you can effectively "pick" a json value and have the other base-level json values excluded
+      // not comprehensive of course
+      function isValidIdentifier (exportName) {
+        return exportName.match(/[a-zA-Z_$][0-9a-zA-Z_$]*/);
+      }
+      var validIdentifiers = namedExports.filter(isValidIdentifier);
+
+      var output = [];
+
+      validIdentifiers.forEach(function (exportName) {
+        output.push('exp' + 'ort var ' + exportName + ' = ' + JSON.stringify(json[exportName]) + ';\n');
+      });
+
+      output.push('exp' + 'ort default {\n');
+      namedExports.forEach(function (exportName) {
+        if (validIdentifiers.indexOf(exportName) !== -1)
+          output.push(exportName + ': ' + exportName + ',\n');
+        else
+          output.push(JSON.stringify(exportName) + ': ' + JSON.stringify(json[exportName]) + ',\n');
+      });
+
+      output.push('};');
+
+      return output.join('');
     }
     if (this.builder) {
       load.metadata.format = 'cjs';
