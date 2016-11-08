@@ -4,10 +4,10 @@
 
 define({
   translate: function(load) {
-    if (this.builder && this.transpiler) {
+    var json = JSON.parse(load.source);
+    if (this.builder && this.transpiler && !Array.isArray(json)) {
       load.metadata.format = 'esm';
 
-      var json = JSON.parse(load.source);
       var namedExports = Object.keys(json);
 
       // this code allows named exports of valid identifiers in json to work with rollup
@@ -38,7 +38,7 @@ define({
     }
     if (this.builder) {
       load.metadata.format = 'cjs';
-      return 'module.exports = ' + JSON.stringify(JSON.parse(load.source));
+      return 'module.exports = ' + JSON.stringify(json);
     }
   },
   instantiate: function(load) {
