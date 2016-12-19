@@ -1,6 +1,6 @@
 {
   "name": "systemjs-plugin-json",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "json",
   "repository": {
     "type": "git",

@@ -14,7 +14,7 @@ define({
       // so you can effectively "pick" a json value and have the other base-level json values excluded
       // not comprehensive of course
       function isValidIdentifier (exportName) {
-        return exportName.match(/[a-zA-Z_$][0-9a-zA-Z_$]*/);
+        return exportName.match(/^[a-zA-Z_$][0-9a-zA-Z_$]*$/);
       }
       var validIdentifiers = namedExports.filter(isValidIdentifier);
 
