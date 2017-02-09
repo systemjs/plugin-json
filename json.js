@@ -10,7 +10,7 @@ function isValidIdentifier(exportName) {
 }
 
 module.exports = {
-  translate: function (load) {
+  translate: function(load) {
     var json = JSON.parse(load.source);
     if (this.builder && this.transpiler && !Array.isArray(json)) {
       load.metadata.format = 'esm';
@@ -43,7 +43,7 @@ module.exports = {
       return 'module.exports = ' + JSON.stringify(json);
     }
   },
-  instantiate: function (load) {
+  instantiate: function(load) {
     if (!this.builder) {
       return JSON.parse(load.source);
     }
