@@ -15,7 +15,6 @@
   },
   "homepage": "https://github.com/systemjs/plugin-json",
   "devDependencies": {
-    "es6-module-loader": "^0.17.11",
     "serve": "^3.2.7",
     "systemjs": "^0.20.5"
   }
