@@ -12,5 +12,5 @@ Testing this project
 npm test
 ```
 
-browse to <http://localhost:3000/test.html> and open the browser's development console.
+browse to <http://localhost:3000/test> and open the browser's development console.
 You should see the json object logged.
