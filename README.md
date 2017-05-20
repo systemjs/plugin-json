@@ -5,6 +5,23 @@ plugin-json
 
 JSON loader plugin
 
+
+
+Configuration
+-------------
+
+To load all URLs with `.json` filename extension via this plugin:
+
+```javascript
+SystemJS.config({
+  map: { 'plugin-json': 'plugin-json/json.js' },
+  meta: { '*.json': { loader: 'plugin-json' } }
+});
+```
+
+
+
+
 Testing this project
 --------------------
 
