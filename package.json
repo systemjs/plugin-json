@@ -1,7 +1,7 @@
 {
   "name": "systemjs-plugin-json",
   "version": "0.3.0",
-  "main": "json",
+  "main": "json.js",
   "scripts": {
     "test": "serve ."
   },
